@@ -32,19 +32,19 @@ h1{
   translate:0px -300px;
 }
 .bot-icon{
-  translate:0px -300px;
+  translate:0px -330px;
 }
 
 .chat-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: rgb(69, 137, 255);
+  background-color: rgb(94, 230, 234);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0 4px 12px var(--shadow-color);
@@ -87,7 +87,13 @@ h1{
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 6px 16px var(--shadow-color);
 }
-
+.close-button{
+  margin: 0px;
+  padding:0px;
+  width:10px;
+  translate: -15px;
+  background-color: none;
+}
 .chat-modal {
   position: fixed;
   bottom: 100px;
@@ -105,7 +111,7 @@ h1{
 }
 
 .chat-header {
-  background-color: var(--primary-color);
+  background-color:rgb(71, 170, 235);
   color: white;
   padding: 20px;
   font-size: 1.2rem;
@@ -274,6 +280,8 @@ h1{
   justify-content: center;
   align-items: center;
 }
+
+
 
 @media (max-width: 480px) {
   .chat-modal {
