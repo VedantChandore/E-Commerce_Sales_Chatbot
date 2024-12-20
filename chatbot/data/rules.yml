@@ -17,6 +17,13 @@ rules:
       - slot_was_set:
           - product: null
 
+  - rule: Get product information
+    steps:
+      - intent: get_product_info
+      - action: action_get_product_info
+      - slot_was_set:
+        - product: null
+
   - rule: Add item to cart
     steps:
       - intent: add_to_cart

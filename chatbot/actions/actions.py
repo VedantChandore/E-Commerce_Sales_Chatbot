@@ -90,29 +90,46 @@ class ActionGetProductInfo(Action):
         return "action_get_product_info"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        product_name = tracker.get_slot("product")  # Get the product slot value
+        # Get the product slot value dynamically
+        product_name = tracker.get_slot("product")
+        print(f"Debug: Received product slot value - {product_name}")  # Debugging
 
-        if product_name:
-            # Fetch the exact product from the database
-            conn = db_connect()
+        if not product_name:
+            dispatcher.utter_message(
+                text="Could you please specify the product you'd like more information about?"
+            )
+            return []
+
+        # Fetch the exact product details dynamically from the database
+        try:
+            conn = db_connect()  # Assuming db_connect() is defined to connect to the database
             cursor = conn.cursor()
+
+            # Use a case-insensitive search and handle partial matches for the product
             cursor.execute(
-                "SELECT name, description FROM products WHERE name LIKE ? LIMIT 1",
+                "SELECT name, description FROM products WHERE LOWER(name) LIKE LOWER(?) LIMIT 1",
                 (f"%{product_name}%",)
             )
             product = cursor.fetchone()
             conn.close()
 
+            # If the product is found, respond with its details
             if product:
                 dispatcher.utter_message(
-                    text=f"Here is more information about {product[0]}: {product[1]}"
+                    text=f"Here is more information about '{product_name}': {product[1]}"
                 )
             else:
-                dispatcher.utter_message(text=f"Sorry, no details are available for '{product_name}'.")
-        else:
-            dispatcher.utter_message(text="Please specify the product to get details.")
-        return []
+                dispatcher.utter_message(
+                    text=f"Sorry, no details are available for '{product_name}'. Please try again with a different product name."
+                )
 
+        except Exception as e:
+            print(f"Debug: Exception occurred - {e}")  # Debugging exception
+            dispatcher.utter_message(
+                text="An error occurred while fetching product details. Please try again later."
+            )
+
+        return []
 
 # Action to add a product to the cart
 class ActionAddToCart(Action):

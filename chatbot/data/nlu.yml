@@ -62,12 +62,12 @@ nlu:
 
 - intent: get_product_info
   examples: |
-    - Tell me more about this [product](product)
-    - What are the features of [product](product)?
-    - Can you give me details on [product](product)?
-    - I want to know more about [product](product)
-    - Describe the [product](product)
-    - What's special about [product](product)?
+    - Tell me more about this [Laptop Stand](product)
+    - What are the features of [Phone](product)?
+    - Can you give me details on [Camera](product)?
+    - I want to know more about [Tablet](product)
+    - Describe the [Headphones](product)
+    - What's special about [Keyboard](product)?
 
 - intent: recommend_products
   examples: |

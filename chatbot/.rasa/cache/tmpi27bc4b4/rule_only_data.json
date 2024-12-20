@@ -1,0 +1,6 @@
+{
+  "rule_only_slots": [
+    "product"
+  ],
+  "rule_only_loops": []
+}

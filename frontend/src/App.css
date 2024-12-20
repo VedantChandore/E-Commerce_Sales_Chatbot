@@ -1,7 +1,7 @@
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
-  --background-color: #ecf0f1;
+  --background-color: #e5f3f7;
   --text-color: #34495e;
   --chat-bg: #ffffff;
   --user-message-bg: #3498db;
@@ -25,6 +25,8 @@ body {
   justify-content: center;
   min-height: 100vh;
   background-color: var(--background-color);
+  margin-top:-700px;
+  margin-left:200px;
 }
 
 .chat-button {
@@ -138,6 +140,7 @@ body {
   border-radius: 20px;
   font-size: 16px;
   background-color: var(--input-bg);
+  color:black;
 }
 
 .chat-input:focus {
