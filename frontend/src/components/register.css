@@ -20,7 +20,8 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  translate:-110px 150px;
+  translate:-15px -200px;
+
 }
 
 h2 {
@@ -34,11 +35,12 @@ input {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   border-radius: 4px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
   background-color: #f0f2f5;
+  color:black
 }
 
 input:focus {
@@ -59,7 +61,7 @@ button {
 }
 
 button:hover {
-  background-color: #357abd;
+  background-color: #3fd62b;
 }
 
 p {

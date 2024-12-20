@@ -1,23 +1,25 @@
 :root {
-  --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --background-color: #e5f3f7;
-  --text-color: #34495e;
+  --primary-color: #4a90e2;
+  --secondary-color: #34c759;
+  --background-color: #f0f4f8;
+  --text-color: #2c3e50;
   --chat-bg: #ffffff;
-  --user-message-bg: #3498db;
-  --bot-message-bg: #2ecc71;
+  --user-message-bg: #4a90e2;
+  --bot-message-bg: #34c759;
   --input-bg: #f6f8fa;
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -25,15 +27,19 @@ body {
   justify-content: center;
   min-height: 100vh;
   background-color: var(--background-color);
-  margin-top:-600px;
-  margin-left:200px;
+}
+h1{
+  translate:0px -300px;
+}
+.bot-icon{
+  translate:0px -300px;
 }
 
 .chat-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--primary-color);
+  bottom: 30px;
+  right: 30px;
+  background-color: rgb(69, 137, 255);
   color: white;
   border: none;
   border-radius: 50%;
@@ -41,49 +47,75 @@ body {
   height: 80px;
   font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 6px var(--shadow-color);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fallIn 1s ease-out, shake 2.5s ease-in-out infinite;
 }
 
+@keyframes fallIn {
+  0% {
+    transform: translateY(-100vh);
+  }
+  60% {
+    transform: translateY(20px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+
 .chat-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px var(--shadow-color);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 16px var(--shadow-color);
 }
 
 .chat-modal {
   position: fixed;
   bottom: 100px;
-  right: 20px;
-  width: 400px;
+  right: 30px;
+  width: 380px;
   height: 600px;
   background-color: var(--chat-bg);
-  border-radius: 12px;
-  box-shadow: 0 10px 20px var(--shadow-color);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   z-index: 1000;
 }
 
 .chat-header {
   background-color: var(--primary-color);
   color: white;
-  padding: 15px;
+  padding: 20px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.close-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+
 
 .chat-container {
   flex-grow: 1;
@@ -97,15 +129,17 @@ body {
   flex-grow: 1;
   overflow-y: auto;
   padding-right: 10px;
+  scroll-behavior: smooth;
 }
 
 .chat-message {
-  margin: 10px 0;
-  padding: 10px 15px;
+  margin: 12px 0;
+  padding: 12px 18px;
   border-radius: 18px;
   max-width: 80%;
   word-wrap: break-word;
   animation: fadeIn 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 @keyframes fadeIn {
@@ -118,12 +152,14 @@ body {
   background-color: var(--user-message-bg);
   color: white;
   margin-left: auto;
+  border-bottom-right-radius: 4px;
 }
 
 .chat-message.bot {
   align-self: flex-start;
   background-color: var(--bot-message-bg);
   color: white;
+  border-bottom-left-radius: 4px;
 }
 
 .chat-input-container {
@@ -131,43 +167,51 @@ body {
   gap: 10px;
   padding: 15px;
   border-top: 1px solid var(--input-bg);
+  background-color: white;
 }
 
 .chat-input {
   flex-grow: 1;
-  padding: 10px 15px;
+  padding: 12px 18px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: 16px;
   background-color: var(--input-bg);
-  color:black;
+  color: var(--text-color);
+  transition: var(--transition);
 }
 
 .chat-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+  border-color: var(--primary-color);
 }
 
 .chat-send-button {
-  background-color: var(--primary-color);
+  background-color: rgb(164, 247, 164);
   color: white;
   border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 50%;
+  width: 80px;
+  height: 60px;
+  font-size: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-send-button:hover {
-  background-color: #2980b9;
+  background-color: #3a7bbf;
+  transform: scale(1.05);
 }
 
 .bot-animation {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
-  background-color: #fff;
+  margin-right: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
@@ -178,7 +222,7 @@ body {
 .bot-animation::after {
   content: '';
   position: absolute;
-  background-color: #3498db;
+  background-color: #ffffff;
 }
 
 .bot-animation::before {
@@ -197,9 +241,9 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(0.95); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .bot-eye {
@@ -239,5 +283,9 @@ body {
     right: 0;
     border-radius: 0;
   }
+  
+  .chat-button {
+    bottom: 20px;
+    right: 20px;
+  }
 }
-

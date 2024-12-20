@@ -10,7 +10,9 @@ const App = () => {
     <Router>
       <div className="container">
         <h1>Welcome to E-Commerce Sales Chatbot</h1>
+        <div className="bot-icon">
         <img src="src/assets/bot.png" height={100} width={100}></img>
+        </div>
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />
           <Route path="/register" element={<Register />} />

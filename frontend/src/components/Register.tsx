@@ -38,7 +38,7 @@ export default function Register() {
 
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <h2>Register 👨🏻‍💻</h2>
       {message && <p className="message">{message}</p>}
       <input
         type="text"

@@ -53,6 +53,7 @@ export default function EcommerceSalesChatbot() {
   return (
     <>
       <button className="chat-button" onClick={() => setIsOpen(true)}>
+        🤖
         💬
       </button>
       {isOpen && (
@@ -60,7 +61,7 @@ export default function EcommerceSalesChatbot() {
           <div className="chat-header">
             <div>Ecommerce Sales Chatbot</div>
             <button className="close-button" onClick={() => setIsOpen(false)}>
-              &times;
+               ❌
             </button>
           </div>
           <div className="chat-container">
@@ -82,7 +83,7 @@ export default function EcommerceSalesChatbot() {
               placeholder="Type your message..."
             />
             <button onClick={sendMessage} className="chat-send-button">
-              Send
+             📨
             </button>
           </div>
         </div>
