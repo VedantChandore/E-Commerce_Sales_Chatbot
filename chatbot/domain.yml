@@ -1,0 +1,44 @@
+version: "3.1"
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - search_product
+  - get_product_info
+  - recommend_products
+  - add_to_cart
+  - view_cart
+  - checkout
+  - clear_cart
+
+entities:
+  - product
+
+slots:
+  product:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: product
+  category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: category
+    influence_conversation: false
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+actions:
+  - action_search_product
+  - action_get_product_info
+  - action_recommend_products
+  - action_add_to_cart
+  - action_view_cart
+  - action_clear_cart
+  - action_checkout

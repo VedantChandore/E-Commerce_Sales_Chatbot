@@ -1,0 +1,46 @@
+version: "3.1"
+stories:
+  - story: User greets
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: User says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User searches for a product
+    steps:
+      - intent: search_product
+      - action: action_search_product
+
+  - story: User gets product info
+    steps:
+      - intent: get_product_info
+      - action: action_get_product_info
+
+  - story: User recommends products
+    steps:
+      - intent: recommend_products
+      - action: action_recommend_products
+
+  - story: User adds a product to cart
+    steps:
+      - intent: add_to_cart
+      - action: action_add_to_cart
+
+  - story: User views cart
+    steps:
+      - intent: view_cart
+      - action: action_view_cart
+
+  - story: User clears the cart
+    steps:
+      - intent: clear_cart
+      - action: action_clear_cart
+
+  - story: User proceeds to checkout
+    steps:
+      - intent: checkout
+      - action: action_checkout

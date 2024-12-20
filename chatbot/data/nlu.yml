@@ -1,0 +1,121 @@
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: search_product
+  examples: |
+    - Find me a [laptop](product)
+    - Show me a [camera](product)
+    - I need a [drone](product)
+    - I'm looking for a [tablet](product)
+    - Do you have a [phone](product)?
+    - Search for a [TV](product)
+    - Show me a [watch](product)
+    - Find me some [headphones](product)
+    - I want a [speaker](product)
+    - Search for [earbuds](product)
+
+
+- intent: get_product_info
+  examples: |
+    - Tell me more about this [product](product)
+    - What are the features of [product](product)?
+    - Can you give me details on [product](product)?
+    - I want to know more about [product](product)
+    - Describe the [product](product)
+    - What's special about [product](product)?
+
+- intent: recommend_products
+  examples: |
+      - Show me trending products
+      - What are your bestsellers?
+      - Recommend some items
+      - Suggest popular products
+      - What are the latest items?
+      - Can you recommend something for me?
+      - Show me the best products
+      - Give me some product recommendations
+
+- intent: add_to_cart
+  examples: |
+    - Add this to my cart
+    - I want to buy this
+    - Put this in my shopping cart
+    - Add [product](product) to my cart
+    - I'd like to purchase this [product](product)
+    - Buy this item
+
+- intent: view_cart
+  examples: |
+    - Show me my cart
+    - What's in my shopping cart?
+    - View my cart
+    - I want to see what I've added
+    - Show my items
+    - What have I selected so far?
+
+- intent: checkout
+  examples: |
+    - I'm ready to checkout
+    - Proceed to payment
+    - I want to pay now
+    - Checkout my items
+    - Complete my purchase
+    - Finalize my order
+
+- intent: clear_cart
+  examples: |
+    - Clear my cart
+    - Remove all items from the cart
+    - Empty the cart
+    - Delete everything in my cart
+    - I want to clear my cart
+    - Clear the shopping cart
+    - Empty my shopping cart
+    - Remove all products from my cart
+    - Reset the cart
+    - Clear everything
